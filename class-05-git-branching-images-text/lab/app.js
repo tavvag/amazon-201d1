@@ -9,11 +9,11 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
-    return ([a+b,'The sum of 4 and 7 is 11.']);
+    return ([a+b,`The sum of ${a} and ${b} is ${a+b}.`]);
 }
 
 // Here is the test for sum(); uncomment it to run it
-// testSum(4, 7);
+//testSum(4, 7);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -27,7 +27,7 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) { //eslint-disable-line
-    return ([a*b,'The product of 5 and 9 is 45.']);
+    return ([a*b,`The product of ${a} and ${b} is ${a*b}.`]);
 }
 
 // Here is the test for multiply(); uncomment it to run it
@@ -42,13 +42,19 @@ Write a function called sumAndMultiply() that takes in three numbers as separate
 Third element: "4 and 7 and 5 sum to 16."
 Fourth element: "The product of 4 and 7 and 5 is 140."
 
+
 IMPORTANT DETAIL: You may not use the arithmetic operators + and * in this function. To do addition, use your sum() function, and to do multiplication, use your multiply() function that you've already created. You're going to have to be resourceful to figure out how to do this. However, you may continue to use the + operator for string concatenation.
 
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumAndMultiply() function and see if the test passes.*/
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-    return ([a+b+c,a*b*c,'4 and 7 and 5 sum to 16.','The product of 4 and 7 and 5 is 140.']);
+   
+    var sumString =`${a} and ${b} and ${c} sum to ${a+b+c}.`;
+    var multpString = `The product of ${a} and ${b} and ${c} is ${a*b*c}.`;
+return ( [a+b+c, a*b*c, sumString, multpString] );
+
+    
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
@@ -71,11 +77,12 @@ var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
     var sumNumber=0;
+   
     for(var counter=0;counter<sumArr.length;counter++) {
         sumNumber=(sum(sumArr[counter],sumNumber)[0]);
     }
     console.log(sumNumber);
-    return ([sumNumber,'2,3,4 was passed in as an array of numbers, and 9 is their sum.']);
+    return ([sumNumber,`${sumArr.join()} was passed in as an array of numbers, and ${sumNumber} is their sum.`]);
 }
 
 // Here is the test for sumArray(); uncomment it to run it
@@ -101,12 +108,12 @@ function multiplyArray(multArr) { //eslint-disable-line
         sumMultipleResults=(multiply(multArr[counter],sumMultipleResults)[0]);
     }
     console.log(sumMultipleResults);
-    return ([sumMultipleResults,'The numbers 2,3,4 have a product of 24.']);
+    return ([sumMultipleResults,`The numbers ${multArr.join()} have a product of ${sumMultipleResults}.`]);
 
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-testMultiplyArray(testArray);
+// testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
@@ -135,11 +142,16 @@ function multiplyAnyArray(dynamicArray) { //eslint-disable-line
         sumMultipleResults=(multiply(dynamicArray[counter],sumMultipleResults)[0]);
     }
     console.log(sumMultipleResults);
-    return ([sumMultipleResults,'The numbers 1,2,3,4,5 have a product of 120.']);
+    return ([sumMultipleResults,`The numbers ${dynamicArray.join()} have a product of ${sumMultipleResults}.`]);
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-testMultiplyAnyArray(testDynamicArray);
+// testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
-   
+   testSum();
+   testMultiply();
+   testSumAndMultiply();
+   testSumArray();
+   testMultiplyArray();
+   testMultiplyAnyArray();
